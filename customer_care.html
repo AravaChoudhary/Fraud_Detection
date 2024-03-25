@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Care Number Input</title>
+    <style>
+        body {
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            margin-top: 2px;
+            font-weight: bolder;
+            background-color: #1a1a1a; 
+            background-image: url(/static/cu3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff; 
+            text-align: center;
+        
+        }
+        img.Icon {
+            width: 300px;
+            float: top; 
+            margin-left: 10px;
+            margin-right: 55%;
+            align-items: start;
+            padding: 25px;
+            border-radius: 10%;
+        }
+        h1 {
+            margin-top: 30px;
+            margin-right: 20%;
+            padding: 2px;
+            font-size: 50px;
+            color: #ffffff; 
+        }
+       
+        label {
+            font-size: 28px;
+            margin-top: 40px;
+            display:ruby-base;
+            margin-right: 46%;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            height: 10%;
+            margin-left: 20%;
+            padding: 15px;
+            margin: 10px auto;
+            border: 1px solid #ccc; 
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bolder;
+            background-color: #5642c4; 
+            color: #ffffff; 
+            outline: none; 
+        }
+        input[type="text"]::placeholder {
+            color: #ccc; 
+        }
+        button[type="submit"] {
+            padding:  19px;
+            background-color: #d60fc6; 
+            color: #000000; 
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 19px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            height: 10%;
+            margin-top: 0%;
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Customer Care Number Input</u></h1>
+    <img src="/static/cu1.jpg" alt="Icon" width="400" height="100" class="Icon">
+    <form action="/customer_care" method="post">
+        <label for="careNumberInput"><b><u>Enter Customer Care Number:</u></b></label>
+        <input type="text" name="care_number" placeholder="123-456-7890" required>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

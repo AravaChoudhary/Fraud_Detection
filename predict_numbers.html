@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+            background-color: #343a40;
+            background-image: url(/static/predict1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        img.Icon{
+            width: 380px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 20px;
+            margin-right: 20px;
+            border-radius: 10%;
+            box-shadow:10px 10px 10px #bdbdbd;
+        }
+        h1 {
+            margin-top: 40px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            font-size: 65px;
+            height: 20%;
+            padding: 10px 20px;
+            color: #7aebff;
+            text-align: left;
+            margin-left: 2%;
+            
+        }
+        p {
+            font-size: 28px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 20px;
+            margin-top: 40px;
+            margin-right: 32%;
+        }
+        strong {
+            font-weight: bold;
+        }
+        a {
+            color: #03f3fc;
+            margin-top: 20px;
+            padding-top: 20px;
+            margin-right: 74%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 24px;
+            
+
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Prediction Result</u></h1>
+    <img src="/static/cu2.jpg" alt="Icon" class="Icon">
+    <p>The number <strong>{{ number }}</strong> is predicted to be: <strong>{{ prediction }}</strong></p>
+    <p><a href="/" style="color: #17a2b8;">Back to Home</a></p>
+</body>
+</html>

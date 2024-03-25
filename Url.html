@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Input</title>
+    <style>
+        body {
+            background-color: #1a1a1a; 
+            background-image: url(/static/background7.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff; 
+        }
+        .container {
+            width: 80%;
+            height: 40%;
+            align-content: center;
+            margin-left: 10%;
+            margin-right: 20%;
+            margin-top: 14%;
+            margin-bottom: 10%;
+            text-align: center;
+            background-color: #333; 
+            background-blend-mode: lighten;
+            background-image: url(/static/background7.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px rgb(6, 214, 180); 
+            
+        }
+        h1 {
+            margin-right: 58%;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-weight: bolder;
+            font-size: 60px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #0b9cd1; 
+            
+        }
+        label {
+            margin-top: 20px;
+            margin-right: 66%;
+            display: block;
+            font-size: 45px;
+            font-weight: 600;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #ccc; 
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            margin-bottom: 15px;
+            margin-right: 65px;
+            border: 1px solid #160e3a; 
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bolder;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #268b8f; 
+            color: #fff; 
+        }
+        button[type="submit"] {
+            width: 20%;
+            margin-right: 69%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #06a35a; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #064483; 
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><u>URL Input</u></h1>
+        <form action="/url" method="post">
+            <label for="urlInput">Enter URL:</label>
+            <input type="text" name="website" placeholder="https://example.com" required>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

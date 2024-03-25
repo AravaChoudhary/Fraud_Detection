@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Web App</title>
+    <style>
+        body {
+            background-color: #1a1a1a; 
+            background-image: url(/static/back1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat; 
+            color: #fff; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 90%;
+            margin: 2.5% auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(216, 8, 112, 0.904); 
+        }
+        h1 {
+            font-size: 55px;
+            font-weight: bold;
+            color: #76e8f0; 
+            margin: 0;
+        }
+        .ml-models-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .model {
+            margin: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .model:hover {
+            transform: translateY(-10px);
+        }
+        .model img {
+            width: 150px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(153, 3, 86, 0.856); 
+            transition: transform 0.3s ease-in-out;
+        }
+        .model img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* News Section */
+        .news-section {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .news-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .news-card {
+            flex: 0 0 40%; 
+            background-color: rgba(34, 34, 34, 0.8);
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            height: 550px;
+        }
+        .news-card h2 {
+            margin-top: 0;
+        }
+        .news-card p {
+            margin-bottom: 0;
+        }
+        .news-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 30px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .prev-btn {
+            left: 10px;
+        }
+        .next-btn {
+            right: 10px;
+        }
+        .load-more-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cyber Security Web App</h1>
+        <div class="ml-models-section">
+            <div class="model">
+                <a href="url">
+                    <img src="/static/url_fake.png" alt="Fake URL">
+                </a>
+            </div>
+            <div class="model">
+                <a href="customer_care">
+                    <img src="/static/fake_numbers.png" alt="Customer Care Number Detection">
+                </a>
+            </div>
+            <div class="model">
+                <a href="add_content">
+                    <img src="/static/add_content.png" alt="Add Cover Content Detection">
+                </a>
+            </div>
+        </div>
+
+        <!-- News Section -->
+        <div class="news-section">
+            <h2>Cybersecurity News</h2>
+            <div class="news-slider" id="newsSlider"></div>
+        </div>
+            <div class="slider-btn prev-btn" onclick="slideNews(-1)">&#10094;</div>
+            <div class="slider-btn next-btn" onclick="slideNews(1)">&#10095;</div>
+            <button class="load-more-btn" onclick="loadMore()">Load More</button>
+        </div>
+        
+    </div>
+
+    <script>
+    async function fetchNews() {
+    const apiKey = 'dd0ff48fddfa430c8e77e46151b39b99';
+    const timestamp = Date.now();
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}&timestamp=${timestamp}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data.articles;
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        return [];
+    }
+}
+
+        
+async function displayNews() {
+    const articles = await fetchNews();
+    const newsContainer = document.getElementById('news-container');
+
+    articles.forEach(article => {
+        const newsCard = document.createElement('div');
+        newsCard.classList.add('news-card');
+
+        const image = document.createElement('img');
+        image.src = article.urlToImage;
+        image.alt = 'News Image';
+        image.style.width = '150px'; 
+        image.style.height = '100px';
+
+        const title = document.createElement('h2');
+        title.textContent = article.title;
+
+        const description = document.createElement('p');
+        description.textContent = article.description;
+
+        newsCard.appendChild(image);
+        newsCard.appendChild(title);
+        newsCard.appendChild(description);
+
+        newsContainer.appendChild(newsCard);
+    });
+}
+
+// Call the displayNews function to fetch and display news articles
+displayNews();
+
+        async function populateNewsSection() {
+            const newsSlider = document.getElementById('newsSlider');
+            const newsData = await fetchNews();
+            if (newsData && newsData.length > 0) {
+                newsData.forEach(article => {
+                    const newsCard = document.createElement('div');
+                    newsCard.classList.add('news-card');
+                    newsCard.innerHTML = `
+                        <img src="${article.urlToImage}" alt="${article.title}">
+                        <h2>${article.title}</h2>
+                        <p>${article.description}</p>
+                    `;
+                    newsSlider.appendChild(newsCard);
+                });
+            } else {
+                const noNewsMessage = document.createElement('p');
+                noNewsMessage.textContent = 'No news available.';
+                newsSlider.appendChild(noNewsMessage);
+            }
+        }
+
+        let slideIndex = 0;
+
+        function slideNews(direction) {
+            const newsSlider = document.querySelector('.news-slider');
+            const newsCards = document.querySelectorAll('.news-card');
+            const cardWidth = newsCards[0].offsetWidth + 20; // Width of card + margin-right
+
+            slideIndex += direction * 2;
+            if (slideIndex < 0) {
+                slideIndex = 0;
+            }
+            if (slideIndex >= newsCards.length) {
+                slideIndex = newsCards.length - 4; // Display 4 articles per slide
+            }
+
+            newsSlider.style.transform = `translateX(-${cardWidth * slideIndex}px)`;
+        }
+
+        function loadMore() {
+            // This function can be used if you want to load more news articles dynamically
+        }
+
+        // Populate news section when the page loads
+        window.addEventListener('DOMContentLoaded', populateNewsSection);
+    </script>
+</body>
+</html>

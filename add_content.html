@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Upload</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #1a1a1a;
+            background-image: url(/static/cu10.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff; 
+            text-align: center;
+        }
+        img.Icon{
+            width: 300px;
+            border-radius: 10%;
+            margin-bottom: 30px;
+            margin-top: 10px;
+            margin-left: 15%;
+            box-shadow: 10px 10px 10px #08053a;
+            position: absolute;
+            top: 0;
+        }
+        h1 {
+            margin-top: 50px;
+            margin-right: 58%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 70px;
+            font-weight: bolder;
+            color: #1fcbff; 
+        }
+        input[type="file"], input[type="text"] {
+            width: 90%;
+            padding: 15px;
+            border: 2px solid #80006e;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 2%;
+            margin-right: 2%;
+            box-shadow: 10px 10px 10px #b6029e;
+            background-color: #333; 
+            color: #fff; 
+            outline: none; 
+        }
+        input[type="file"]::file-selector-button, input[type="text"]::file-selector-button {
+            background-color: #007bff;
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="file"]::file-selector-button:hover, input[type="text"]::file-selector-button:hover {
+            background-color: #0775eb; 
+        }
+        button[type="submit"] {
+            padding: 15px 20px;
+            margin-left: 50px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            cursor: pointer;
+            box-shadow: 10px 10px 10px #b6029e;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #d10092;
+            font-size: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Add Content Detection</u></h1>
+    <img src="/static/image_1.jpg" alt="Icon" class="Icon">
+    <form action="/add_content" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <form action="/add_content" method="post" enctype="multipart/form-data">
+        <input type="text" name="add_description" placeholder="Enter text content" required>
+        <button type="submit">ENTER</button>
+    </form>
+</body>
+</html>

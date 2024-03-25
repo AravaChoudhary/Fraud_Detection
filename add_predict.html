@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url(/static/predict.jpg);
+            background-size: cover;
+            text-align: center;
+        }
+        .result-container {
+            margin-top: 50px;
+        }
+        .result {
+            border: 2px solid #2ab157;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            display: inline-block;
+        }
+        .result img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .result p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Result</h1>
+    <div class="result-container">
+        <div class="result">
+            <p><p>The ADD content <strong>{{ add_description }}</strong> is predicted to be: <strong>{{ prediction }}</strong></p></p>
+        </div>
+    </div>
+</body>
+</html>
