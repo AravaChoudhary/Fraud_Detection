@@ -1,0 +1,124 @@
+body {
+    background-color: #1a1a1a; 
+    background-image: url(/static/back1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    color: #fff; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+        
+.container {
+    max-width: 90%;
+    margin: 2.5% auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(216, 8, 112, 0.904); 
+}
+
+h1 {
+    font-size: 55px;
+    font-weight: bold;
+    color: #76e8f0; 
+    margin: 0;
+}
+    
+.ml-models-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.model {
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.model:hover {
+    transform: translateY(-10px);
+}
+
+.model img {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(153, 3, 86, 0.856); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.model img:hover {
+        transform: scale(1.1);
+}
+        
+/* News Section */
+.news-section {
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+ 
+.news-card {
+    flex: 0 0 40%; 
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    height: 550px;
+}
+    
+.news-card h2 {
+    margin-top: 0;
+}
+
+.news-card p {
+    margin-bottom: 0;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.load-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(153, 3, 86, 0.856);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
